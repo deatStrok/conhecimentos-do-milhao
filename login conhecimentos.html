@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Cadastro</title>
+  <link rel="stylesheet" href="login conhecimentos estilo.css">
+</head>
+<body>
+  <div class="container" id="container">
+    <!-- Tela de Cadastro -->
+    <div class="form-container sign-up-container">
+      <form action="#">
+        <h1>Criar sua Conta</h1>
+        <input type="text" placeholder="Nome" />
+        <input type="text" placeholder="Usuário" />
+        <input type="email" placeholder="E-mail" />
+        <input type="password" placeholder="Senha" />
+        <input type="password" placeholder="Confirmar Senha" />
+        <div class="captcha-placeholder">[reCAPTCHA]</div>
+        <button>Cadastrar</button>
+      </form>
+    </div>
+
+    <!-- Tela de Login -->
+    <div class="form-container sign-in-container">
+      <form action="#">
+        <h1>Fazer Login</h1>
+        <input type="email" placeholder="E-mail" />
+        <input type="password" placeholder="Senha" />
+        <div class="captcha-placeholder">[reCAPTCHA]</div>
+        <div class="remember">
+          <input type="checkbox" id="remember" />
+          <label for="remember">Lembrar de mim</label>
+        </div>
+        <a href="#">Esqueceu sua senha?</a>
+        <button>Login</button>
+      </form>
+    </div>
+
+    <!-- Painel Lateral -->
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <p>mantenha-se conectado!</p>
+          <button class="ghost" id="signIn">Login</button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1>Não possui uma conta?</h1>
+          <p>Cadastre-se agora!</p>
+          <button class="ghost" id="signUp">Cadastrar</button> <!-- Este botão será alterado dinamicamente -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botões sociais -->
+  <div class="social-login">
+    <button class="facebook">Login com Facebook</button>
+    <button class="google">Login com Google</button>
+    <button class="discord">Login com Discord</button>
+  </div>
+
+  <script src="login conhecimentos logica.js"></script>
+</body>
+</html>

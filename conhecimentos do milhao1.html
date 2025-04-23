@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv=" X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>conhecimentos do milhao</title>
+    <link rel="stylesheet" href="conhecimentos do milhao.css">
+</head>
+<body class="light-theme">
+    <header>
+        <h1>conhecimentos do milhao</h1>
+        <button id="menu-button">
+            <div></div>
+            <div></div>
+            <div></div>
+        </button>
+        <button id="login-button">Login</button> <!-- Este botão exibirá o nickname do jogador -->
+        <span id="current-player" style="margin-left: 10px; font-weight: bold;"></span> <!-- Exibe o jogador atual -->
+        <div id="logout-option" style="display: none;">Sair</div> <!-- Botão de sair -->
+    </header>
+    
+    <section id="year-selection">
+        <h2>Selecione o seu ano:</h2>
+        <ul>
+            <li>
+                6° ano <span class="arrow">▶</span>
+                <ul>
+                    <li>Matemática</li>
+                    <li>Português</li>
+                    <li>História</li>
+                    <li>Geografia</li>
+                    <li>Ciências</li>
+                    <li>Inglês</li>
+                    <li>Teste</li>
+                </ul>
+            </li>
+            <li>
+                7° ano <span class="arrow">▶</span>
+                <ul>
+                    <li>Matemática</li>
+                    <li>Português</li>
+                    <li>História</li>
+                    <li>Geografia</li>
+                    <li>Ciências</li>
+                    <li>inglês</li>
+                    <li>TESTE</li>
+                </ul>
+            </li>
+            <li>
+                8° ano <span class="arrow">▶</span>
+                <ul>
+                    <li>Matemática</li>
+                    <li>Português</li>
+                    <li>História</li>
+                    <li>Geografia</li>
+                    <li>Ciências</li>
+                    <li>inglês</li>
+                    <li>TESTE</li>
+                </ul>
+            </li>
+            <li>
+                9° ano <span class="arrow">▶</span>
+                <ul>
+                    <li>Matemática</li>
+                    <li>Português</li>
+                    <li>História</li>
+                    <li>Geografia</li>
+                    <li>Ciências</li>
+                    <li>inglês</li>
+                    <li>TESTE</li>
+                </ul>
+            </li>
+            <li>
+                1° ano <span class="arrow">▶</span>
+                <ul>
+                    <li>Matemática</li>
+                    <li>Português</li>
+                    <li>História</li>
+                    <li>Geografia</li>
+                    <li>Ciências</li>
+                    <li>inglês</li>
+                    <li>Quimica</li>
+                    <li>Fisica</li>
+                    <li>Biologia</li>
+                    <li>Sociologia</li>
+                    <li>Filosofia</li>
+                    <li>TESTE</li>
+                </ul>
+            </li>
+            <li>
+                2° ano <span class="arrow">▶</span>
+                <ul>
+                    <li>Matemática</li>
+                    <li>Português</li>
+                    <li>História</li>
+                    <li>Geografia</li>
+                    <li>Ciências</li>
+                    <li>inglês</li>
+                    <li>Quimica</li>
+                    <li>Fisica</li>
+                    <li>Biologia</li>
+                    <li>Sociologia</li>
+                    <li>Filosofia</li>
+                    <li>TESTE</li>
+                </ul>
+            </li>
+            <li>
+                3° ano <span class="arrow">▶</span>
+                <ul>
+                    <li>Matemática</li>
+                    <li>Português</li>
+                    <li>História</li>
+                    <li>Geografia</li>
+                    <li>Ciências</li>
+                    <li>inglês</li>
+                    <li>Quimica</li>
+                    <li>Fisica</li>
+                    <li>Biologia</li>
+                    <li>Sociologia</li>
+                    <li>Filosofia</li>
+                    <li>TESTE</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+    <main id="game-container" style="display: none;">
+        <div id="left-panel">
+            <section id="question-section">
+                <h2 id="question">Qual é a capital do Brasil?</h2>
+                <ul id="answers">
+                    <li class="answer">A) São Paulo</li>
+                    <li class="answer">B) Rio de Janeiro</li>
+                    <li class="answer">C) Brasília</li>
+                    <li class="answer">D) Salvador</li>
+                </ul>
+            </section>
+            <div id="help-boards-container">
+                <!-- Placas serão geradas dinamicamente -->
+            </div>
+            <section id="scoreboard">
+                <h3>Prêmios</h3>
+                <ul>
+                    <!-- Os valores serão preenchidos dinamicamente pelo JavaScript -->
+                </ul>
+            </section>
+        </div>
+        <div id="right-panel">
+            <section id="controls">
+                <button id="confirm-button">Confirmar</button>
+                <button id="stop-button">Parar</button>
+                <div id="Ajudas">Ajudas</div>
+                <button id="help-card">Cartas <span id="help-card-count">1</span></button>
+                <button id="help-audience">Plateia <span id="help-audience-count">2</span></button>
+                <button id="help-boards">Placas <span id="help-boards-count">3</span></button>
+            </section>
+            <div id="prize-info">Valores dos prêmios
+                <p id="current-prize">Valor atual se parar: R$ 1.000</p>
+                <p id="next-prize">Se acertar: R$ 2.000</p>
+                <p id="stop-prize">Se errar: R$ 0</p>
+            </div>
+        </div>
+    </main>
+    <div id="points-container">
+        <h3>Pontos Acumulados</h3>
+        <p id="total-points">0 pontos</p>
+    </div>
+    <div id="rank-container">
+        <h3>Ranking</h3>
+        <!-- Ranking será preenchido dinamicamente -->
+    </div>
+    <div id="start-container">
+        <div id="start-border">
+            <h1 id="start-title">conhecimentos do milhão: <span id="selected-subject">escolha seu ano e materia desejada no menu</span></h1>
+            <button id="start-button">Jogar</button>
+        </div>
+    </div>
+    <ul>
+        <div>
+            <button class="tema">
+                <div class="theme-toggle">
+                    <span class="slider"></span>
+                </div>
+            </button>
+        </div>
+    </ul>
+    <div id="rejogar-container" style="display: none;">
+        <div id="rejogar-border">
+            <h1>Parabéns! Você completou a matéria e fez 1.000 pontos!</h1>
+            <button id="rejogar-button">Rejogar</button>
+        </div>
+    </div>
+    <script src="conhecimentos do milhao.js"></script>
+    <script src="logica do jogo.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPlayer = sessionStorage.getItem('currentPlayer') || 'Visitante';
+            document.getElementById('current-player').textContent = `Jogador: ${currentPlayer}`;
+        });
+    </script>
+</body> 
+</html>
+

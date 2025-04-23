@@ -1,0 +1,783 @@
+body {
+    background: var(--bg);
+    color: var(--fontColor);
+    font-family: helvetica;
+    text-transform: uppercase; /* Converte todo o texto para maiúsculas */
+  }
+
+ul {
+    font-family: helvetica;
+}
+li {
+    list-style: circle;
+  }
+  
+  .list {
+    list-style: square;
+  }
+  
+  #msg {
+    font-family: monospace;
+  }
+  .light-theme {
+    --bg: #dddddd; /* Fundo claro suavizado */
+    --fontColor: #333333; /* Texto escuro */
+    --temaBg: #4d4d4d; /* Fundo do botão tema ajustado */
+    --temaFontColor: #f0f0f0; /* Texto do botão tema */
+    text-align: center;
+  }
+  .dark-theme {
+    --bg: #121212; /* Fundo escuro */
+    --fontColor: #e0e0e0; /* Texto claro */
+    --temaBg: #e0e0e0; /* Fundo do botão tema */
+    --temaFontColor: #121212; /* Texto do botão tema */
+    text-align: center;
+  }
+  :root {
+    --green: #ff0000;
+    --white: #FFFFFF;
+    --black: #fad400;
+  }
+  .tema {
+    position: fixed;
+    top: 700px;
+    left: 1290px;
+    height: 40px;
+    width: 80px;
+    border-radius: 20px;
+    background-color: var(--temaBg);
+    border: 2px solid var(--fontColor);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transition: background-color 0.3s, justify-content 0.3s;
+  }
+
+.tema .theme-toggle {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.tema .slider {
+    height: 30px;
+    width: 30px;
+    background-color: var(--fontColor);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--bg);
+    font-size: 18px;
+    transition: transform 0.3s;
+}
+
+body.light-theme .tema {
+    justify-content: flex-start;
+    background-color: #ddd;
+}
+
+body.light-theme .slider {
+    transform: translateX(-30px);
+    content: '☼';
+}
+
+body.dark-theme .tema {
+    justify-content: flex-end;
+    background-color: #333;
+}
+
+body.dark-theme .slider {
+    transform: translateX(30px);
+    content: '☾';
+}
+
+.theme-toggle {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.theme-icon {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+
+header {
+    background-color: #1f0e50a2;
+    padding: 10px;
+    text-align: center;
+}
+
+header h1 {
+    text-transform: uppercase; /* Garante que esses elementos específicos também fiquem em maiúsculas */
+}
+
+#menu-button {
+    position: absolute;
+    top: 10px;
+  display: block;
+    margin: 10px auto;
+    background: #007bff; /* Azul para melhor contraste */
+    border: 3px solid #0056b3; /* Azul mais escuro */
+    cursor: pointer;
+    text-transform: uppercase; /* Garante que esses elementos específicos também fiquem em maiúsculas */
+}
+
+#menu-button div {
+    width: 30px;
+    height: 3px;
+    background: #ffffff; /* Branco para contraste com o azul */
+    margin: 5px 0;
+}
+
+
+#year-selection { 
+    position: absolute; /* Alterado de sticky para fixed */
+    top: 14%; 
+    right: 81,5%; /* Ajustado para fixar no canto superior direito */
+    background-color: #0056b3; /* Azul mais escuro */
+    border: 1px solid #007bff; /* Azul claro */
+    padding: 0px 5px; /* Reduza o espaçamento lateral */
+    margin: 0; /* Removido o margin para evitar deslocamento */
+    display: none; /* Inicialmente oculto */
+    width: fit-content; /* Ajuste a largura ao conteúdo */
+    font-family: helvetica;
+    color: #FFFFFF; /* Texto branco para contraste */
+    overflow: hidden;
+}
+
+#year-selection h2 {
+    text-transform: uppercase; /* Garante que esses elementos específicos também fiquem em maiúsculas */
+}
+
+#year-selection ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    float: 100vh;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#year-selection li {
+    position: relative;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #539c00; /* Background padrão para os anos */;
+    border-radius: 5px;
+    overflow: hidden;
+    border: #121212 solid 2px; /* Borda para os anos */
+}
+
+#year-selection li .arrow {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+#year-selection li .arrow.down {
+    transform: translateY(-50%) rotate(90deg);
+}
+
+#year-selection li ul {
+    display: none;
+    padding-left: 20px;
+    margin-top: 5px;
+}
+
+#year-selection li ul li {
+    background-color: #0072a7; /* Background para as matérias */
+    color: #FFFFFF;
+    border-radius: 3px;
+    padding: 5px;
+    margin: 3px 0;
+}
+
+#game-container {
+  position: absolute;
+  left: 18%;
+  top: 15%;
+    display: flex; /* Altere para flex para organizar os painéis lado a lado */
+    flex-direction: row; /* Certifique-se de que os itens estejam em linha */
+    justify-content: space-between;
+    margin: 30px auto;
+    padding: 1px;
+    background-color: var(--bg);
+    border: 2px solid var(--fontColor);
+    border-radius: 22px;
+    height: 71vh; /* Ajuste a altura conforme necessário */
+    width: 73%;
+    max-width: 1200px;
+    transition: left 0.1s ease; /* Adiciona uma transição suave para o deslocamento */
+}
+
+#game-container.menu-open {
+    left: 22%; /* Move 2% para a direita quando o menu é acionado */
+}
+
+#left-panel {
+    width: 60%; /* Ocupa 60% da largura */
+    display: flex;
+    flex-direction: column; /* Organiza perguntas e respostas em coluna */
+    justify-content: flex-start; /* Alinha os itens ao topo */
+    gap: 15px; /* Espaçamento entre perguntas e respostas */
+    border: 2px solid var(--fontColor);
+    position: absolute;
+    width: 73%;
+    height: 70vh; /* Ajuste a altura conforme necessário */
+    left: 0.3%;
+    top: 0.8%;
+    align-items: left;
+    text-align: center;
+    border-radius: 18px;
+}
+
+#right-panel {
+  position: absolute;
+  right: -8%;
+  top: 2%;
+  width: 25%; /* Ocupa 35% da largura */
+  height: 70vh; /* Ajuste a altura conforme necessário */
+  display: flex;
+  flex-direction: column; /* Organiza botões e informações em coluna */
+  align-items: center; /* Alinha os itens ao centro */
+  gap: 15px; /* Espaçamento entre botões e informações */
+  border: 2px solid var(--fontColor);
+position: absolute;
+    right: 0.3%;
+    top: 0.8%;
+    align-items: center;
+  border-radius: 18px;
+  background-color: var(--bg);
+}
+
+#prize-info {
+  width: 90%; /* Ajusta para ocupar toda a largura do painel */
+  margin-top: 10px; /* Espaçamento superior */
+  text-align: center;
+  font-size: 18px;
+  color: var(--fontColor);
+  font-weight: bold; /* Destaca o texto */
+  text-transform: uppercase; /* Garante que esses elementos específicos também fiquem em maiúsculas */
+  background-color: rgba(0, 0, 0, 0.1); /* Adiciona um fundo leve */
+  padding: 5px; /* Adiciona espaçamento interno */
+  border-radius: 15px; /* Bordas arredondadas */
+  border: 2px solid var(--fontColor); /* Adiciona uma borda */
+}
+
+#prize-info p {
+  margin: 5px 0;
+}
+
+#question-section {
+    margin-bottom: 20px; /* Espaçamento inferior */
+}
+
+#question-section h2 {
+    text-transform: none; /* Mantém o texto das respostas e perguntas como está */
+}
+
+#scoreboard {
+    position: absolute;
+    bottom: 15px;/* Quase encostando na borda inferior */
+    left: 0;
+    width: 100%; /* Ocupa toda a largura do painel esquerdo */
+    text-align: center;
+}
+
+#scoreboard ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left; /* Alinha o texto à esquerda */
+    display: flex;
+    flex-direction: row;
+    
+}
+
+#scoreboard li {
+    margin: 5px 0;
+    font-size: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    border: 2px solid var(--fontColor);
+    padding: 5px;
+    border-radius: 5px;
+    position: relative; /* Necessário para posicionar a seta */
+    text-align: center;
+}
+
+#scoreboard li.previous {
+    color: red;
+    border-color: red;
+}
+
+#scoreboard li.current {
+    color: green;
+    border-color: green;
+    font-weight: bold;
+    position: relative; /* Necessário para posicionar a seta */
+    font-size: 18px; /* Aumenta o tamanho da fonte */
+    transform: translateY(-10px); /* Move a borda para cima */
+    transition: all 0.3s ease; /* Suaviza a transição */
+}
+
+#scoreboard li.next {
+    color: yellow;
+    border-color: yellow;
+}
+
+#scoreboard li.current::before {
+    content: '▲';
+    position: absolute;
+    bottom: -7px;/* Posiciona a seta abaixo do item */
+    left: 50%;
+    transform: translateX(-50%);
+    color: green;
+    font-size: 16px;
+    
+}
+
+#controls {
+    display: flex;
+    flex-direction: column; /* Organiza os botões em coluna */
+    gap: 10px; /* Espaçamento entre os botões */
+}
+
+#controls button {
+    display: flex;
+    justify-content: space-between; /* Espaça o texto e o número */
+    align-items: center;
+    position: relative;
+}
+
+#controls button span {
+    position: absolute;
+    right: 10px; /* Posiciona o número à direita */
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--fontColor);
+}
+
+button {
+    background-color: var(--fontColor);
+    color: var(--bg);
+    border: 2px solid black;
+    padding: 10px 20px;
+    margin: 5px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase; /* Garante que esses elementos específicos também fiquem em maiúsculas */
+}
+
+button:hover {
+    background-color: var(--temaBg);
+}
+
+#help-card, #help-boards, #help-audience {
+    background-color: #96002d;
+    color: white;
+  
+}
+
+#help-card:hover, #help-boards:hover, #help-audience:hover {
+    background-color:  #96002d;
+}
+
+.answer {
+    background-color: var(--fontColor);
+    color: var(--bg);
+    padding: 10px 20px;
+    margin: 10px 0;
+    border: 2px solid var(--fontColor);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: left; /* Alinha o texto à esquerda */
+    width: 93%; /* Faz a borda ocupar toda a largura do left-panel */
+    box-sizing: border-box; /* Inclui o padding e a borda no tamanho total */
+    overflow: hidden;
+    position: relative; /* Necessário para posicionar a seta */
+    text-transform: none; /* Mantém o texto das respostas e perguntas como está */
+}
+
+.answer:hover {
+    background-color: var(--temaBg);
+}
+
+.answer.blink {
+    animation: blink 1s infinite;
+}
+
+.answer.selected {
+    animation: blink-Green 0.5s; /* Pisca uma vez */
+    background-color: #007bff; /* Azul para resposta selecionada */
+    color: #ffffff; /* Texto branco para contraste */
+    border: 2px solid #0056b3; /* Borda azul mais escura */
+}
+
+.answer.selected::before {
+    content: '▶'; /* Seta azul */
+    position: absolute;
+    left: -3px; /* Posiciona fora da caixa, à esquerda */
+    top: 50%;
+    transform: translateY(-50%);
+    color: #00ff15; /* Verde */
+    font-size: 18px;
+    font-weight: bold;
+}
+
+@keyframes blink {
+    50% {
+        background-color: green;
+        color: white;
+    }
+}
+
+@keyframes blink-red {
+    0%, 100% {
+        border-color: red;
+    }
+    50% {
+        border-color: transparent;
+    }
+}
+
+@keyframes blink-Green {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        background-color: #00ff15;
+        opacity: 0;
+    }
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-5px); }
+    40% { transform: translateX(5px); }
+    60% { transform: translateX(-5px); }
+    80% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
+  }
+  
+  .shake {
+    animation: shake 0.4s ease;
+  }
+
+#start-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+#start-border {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    border: 2px solid var(--fontColor);
+    border-radius: 10px;
+    background-color: var(--bg);
+    text-align: center;
+}
+
+#start-title {
+    font-size: 24px;
+    color: var(--fontColor);
+    margin-bottom: 20px;
+}
+
+#start-button {
+    background-color: var(--fontColor);
+    color: var(--bg);
+    border: solid var(--fontColor);
+    padding: 15px 30px;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-transform: uppercase; /* Garante que esses elementos específicos também fiquem em maiúsculas */
+}
+
+#start-button:hover {
+    background-color: var(--temaBg);
+    
+}
+
+#stop-button {
+    background-color: var(--fontColor);
+    color: var(--bg);
+    margin-right: 0; /* Remove o deslocamento à direita */
+    margin-left: auto; /* Centraliza horizontalmente */
+    margin-right: auto; /* Centraliza horizontalmente */
+    text-align: center; /* Centraliza o texto dentro do botão */
+    display: block; /* Garante que o botão seja tratado como um bloco */
+    width: 80%; /* Define uma largura consistente */
+    transition: color 0.3s; /* Suaviza a transição da cor */
+    text-transform: uppercase; /* Garante que esses elementos específicos também fiquem em maiúsculas */
+}
+
+#confirm-button {
+    margin-top: 20px; /* Adiciona espaçamento superior apenas para esses botões */
+}
+
+.light-theme #stop-button {
+    color: #ffffff; /* Cor escura para o tema claro */
+}
+
+.dark-theme #stop-button {
+    color: #000000; /* Cor clara para o tema escuro */
+}
+
+#rejogar-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 100%;
+}
+
+#rejogar-border {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    border: 2px solid var(--fontColor);
+    border-radius: 10px;
+    background-color: var(--bg);
+    text-align: center;
+}
+
+#rejogar-border h1 {
+    font-size: 24px;
+    color: var(--fontColor);
+    margin-bottom: 20px;
+    text-transform: uppercase; /* Garante que esses elementos específicos também fiquem em maiúsculas */
+}
+
+#rejogar-button {
+    background-color: var(--fontColor);
+    color: var(--bg);
+    border: solid var(--fontColor);
+    padding: 15px 30px;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-transform: uppercase; /* Garante que esses elementos específicos também fiquem em maiúsculas */
+}
+
+#rejogar-button:hover {
+    background-color: var(--temaBg);
+}
+
+button:hover, 
+.answer:hover, 
+#menu-button:hover, 
+#year-selection li:hover, 
+#rejogar-button:hover, 
+#start-button:hover, 
+#stop-button:hover,
+#help-card:hover, 
+#help-boards:hover, 
+#help-audience:hover {
+    background-color: var(--bg); /* Cor de fundo do tema oposto */
+    color: var(--fontColor); /* Cor do texto do tema oposto */
+    border-color: var(--fontColor); /* Ajusta a borda para o tema oposto */
+}
+
+#help-boards-container {
+    display: none; /* Inicialmente oculto */
+    position: relative; /* Relativo ao container pai */
+    top: -20px; /* Posiciona logo acima do scoreboard */
+    left: 0;
+    width: 100%; /* Ocupa toda a largura do container pai */
+    display: flex;
+    gap: 10px; /* Espaçamento entre as placas */
+    justify-content: center;
+}
+
+.board {
+    background-color: #94754c; /* Tom amadeirado */
+    color: var(--bg);
+    border: 2px solid #8b4513; /* Borda em tom de madeira escura */
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    width: fit-content;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave para animação */
+}
+
+.board.raised {
+    animation: raiseAndFall 1s ease; /* Aplica a animação de levantar e cair */
+}
+
+@keyframes raiseAndFall {
+    0% {
+        transform: translateY(0); /* Posição inicial */
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+    50% {
+        transform: translateY(-10px); /* Levanta a placa */
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); /* Adiciona sombra ao levantar */
+    }
+    100% {
+        transform: translateY(0); /* Volta à posição inicial */
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+
+#Ajudas {
+    margin-top: 15px; /* Espaçamento acima das ajudas */
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.1); /* Adiciona um fundo leve */
+  padding: 5px; /* Adiciona espaçamento interno */
+  border-radius: 15px; /* Bordas arredondadas */
+  border: 2px solid var(--fontColor); /* Adiciona uma borda */
+  text-transform: uppercase; /* Garante que esses elementos específicos também fiquem em maiúsculas */
+}
+
+#confirm-dialog, #stop-dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg);
+    color: var(--fontColor);
+    border: 2px solid var(--fontColor);
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    gap: 10px;
+    z-index: 1000;
+}
+
+#confirm-dialog button, #stop-dialog button {
+    background-color: var(--fontColor);
+    color: var(--bg);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+#confirm-dialog button:hover, #stop-dialog button:hover {
+    background-color: var(--temaBg);
+}
+
+#login-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--fontColor);
+    color: var(--bg);
+    border: 2px solid var(--fontColor);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+#logout-option {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background-color: #242323;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#logout-option:hover {
+    background-color: #ff1a1a;
+}
+
+#points-container, #rank-container {
+    position: absolute;
+    bottom: -65px;
+    background-color: var(--bg);
+    color: var(--fontColor);
+    border: 2px solid var(--fontColor);
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+#points-container {
+    bottom: -43px;
+    left: 18%;
+    width: 20%;
+}
+
+#rank-container {
+    bottom: -33px;
+    left: 43%;
+    width: 30%;
+    max-height: calc(4 * 21px); /* Altura máxima para 4 pessoas (40px por item + 20px de margem/padding) */
+    overflow-y: auto; /* Adiciona barra de rolagem se exceder a altura */
+    transition: max-height 0.3s ease; /* Suaviza a transição de altura */
+}
+
+#rank-container div {
+    margin-bottom: 5px; /* Espaçamento entre os itens do ranking */
+}
+
+#rank-container.menu-open {
+    left: 47%; /* Ajuste o valor conforme necessário */
+    transition: left 0.3s ease; /* Transição suave */
+}
+
+#points-container.menu-open {
+    left: 22%; /* Ajuste o valor conforme necessário */
+    transition: left 0.3s ease; /* Transição suave */
+}
+
